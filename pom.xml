@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.com). All Rights Reserved.
+ ~
+ ~ This software is the property of WSO2 Inc. and its suppliers, if any.
+ ~ Dissemination of any information or reproduction of any material contained
+ ~ herein is strictly forbidden, unless permitted by WSO2 in accordance with
+ ~ the WSO2 Commercial License available at http://wso2.com/licenses.
+ ~ For specific language governing the permissions and limitations under this
+ ~ license, please see the license as well as any agreement you’ve entered into
+ ~ with WSO2 governing the purchase of this software and any associated services.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.wso2</groupId>
+        <artifactId>wso2</artifactId>
+        <version>1</version>
+    </parent>
+
+    <groupId>org.wso2.sample.entitlement</groupId>
+    <artifactId>sample.custom.handler</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+
+
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.wso2.carbon.apimgt/org.wso2.carbon.apimgt.gateway -->
+        <dependency>
+            <groupId>org.wso2.carbon.apimgt</groupId>
+            <artifactId>org.wso2.carbon.apimgt.gateway</artifactId>
+            <version>6.1.66</version>
+        </dependency>
+
+
+
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon</groupId>-->
+            <!--<artifactId>org.wso2.carbon.apimgt.gateway</artifactId>-->
+            <!--<version>6.1.66</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.synapse/synapse-core &ndash;&gt;-->
+                <!--<groupId>org.apache.synapse</groupId>-->
+                <!--<artifactId>synapse-core</artifactId>-->
+            <!--=-->
+
+            <!--<groupId>org.apache.synapse</groupId>-->
+            <!--<artifactId>synapse-core</artifactId>-->
+            <!--<version>2.1.7.wso2v10</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.apache.axis2</groupId>-->
+                    <!--<artifactId>axis2-codegen</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.wso2.carbon.appmgt/org.wso2.carbon.appmgt.gateway -->
+        <!-- https://mvnrepository.com/artifact/org.wso2.carbon/org.wso2.carbon.identity.entitlement.mediator -->
+
+        <!-- https://mvnrepository.com/artifact/org.wso2.carbon.apimgt/org.wso2.carbon.apimgt.impl -->
+
+        <dependency>
+            <groupId>org.wso2.carbon.apimgt</groupId>
+            <artifactId>org.wso2.carbon.apimgt.impl</artifactId>
+            <version>6.1.66</version>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon</groupId>-->
+            <!--<artifactId>org.wso2.carbon.user.core</artifactId>-->
+            <!--<version>4.4.11</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon</groupId>-->
+            <!--<artifactId>org.wso2.carbon.utils</artifactId>-->
+            <!--<version>4.4.11</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon</groupId>-->
+            <!--<artifactId>org.wso2.carbon.user.api</artifactId>-->
+            <!--<version>4.4.11</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.apimgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.apimgt.impl</artifactId>-->
+            <!--<version>6.1.66</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.client</groupId>-->
+            <!--<artifactId>ClaimConfig</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.apimgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.apimgt.impl</artifactId>-->
+            <!--<version>6.1.66</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>${javax.ws.rs.version}</version>
+
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${javax.jsp-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${javax.servelet.jstl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.identity.entitlement.mediator</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.identity</groupId>
+            <artifactId>org.wso2.carbon.identity.entitlement.proxy</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+      <javax.ws.rs.version>1.1.1</javax.ws.rs.version>
+        <javax.servelet.jstl.version>1.2</javax.servelet.jstl.version>
+        <javax.jsp-api.version>2.0</javax.jsp-api.version>
+        <javax.ws.rs-api.version>2.0.1</javax.ws.rs-api.version>
+        <imp.pkg.version.javax.servlet>[2.6.0, 3.0.0)</imp.pkg.version.javax.servlet>
+        <servlet-api.version>2.4</servlet-api.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <javax.xml.parsers.import.pkg.version>[0.0.0, 1.0.0)</javax.xml.parsers.import.pkg.version>
+    </properties>
+
+    <repositories>
+
+        <repository>
+            <id>wso2-nexus</id>
+            <name>WSO2 internal Repository</name>
+            <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>wso2.releases</id>
+            <name>WSO2 internal Repository</name>
+            <url>http://maven.wso2.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
+        <repository>
+            <id>wso2.snapshots</id>
+            <name>Apache Snapshot Repository</name>
+            <url>http://maven.wso2.org/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <!--<repository>-->
+            <!--<id>wso2-nexus</id>-->
+            <!--<name>WSO2 internal Repository</name>-->
+            <!--<url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+                <!--<updatePolicy>daily</updatePolicy>-->
+                <!--<checksumPolicy>ignore</checksumPolicy>-->
+            <!--</releases>-->
+        <!--</repository>-->
+
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-scr-plugin</artifactId>
+                <version>1.7.2</version>
+                <executions>
+                    <execution>
+                        <id>generate-scr-scrdescriptor</id>
+                        <goals>
+                            <goal>scr</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.5</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                        <Import-Package>org.wso2.carbon.identity.entitlement.proxy.*; version="5.1.1",
+                            javax.servlet.http; version=2.4.0,
+                            javax.xml.parsers; version="${javax.xml.parsers.import.pkg.version}",
+                            org.wso2.carbon.identity.entitlement.mediator.*; version="4.2.2",
+                            *;</Import-Package>
+
+                        <Export-Package>
+                            sample.custom.handler.*,
+                        </Export-Package>
+                        <DynamicImports>*</DynamicImports>
+
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
